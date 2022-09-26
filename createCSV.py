@@ -26,6 +26,14 @@ for img in glob.glob(path+"/*.png"):
     # grayscale conversion
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
+    # crop image to fit window
+    cropped = gray[66:190, 66:190] # these are image coordinates
+
+    # comment out after debugging
+    cv2.imshow('image', cropped)
+    cv2.waitKey(0)
+    # cv2.destroyAllWindows()
+
     # resize to 48 x 48
     dim = (48, 48)
     resized = cv2.resize(gray, dim, interpolation = cv2.INTER_AREA)
